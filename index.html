@@ -1,14 +1,145 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AX</title>
-    <script type="module" crossorigin src="/assets/index-dt9aCg8h.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Sih1fo5U.css">
+    <meta charset="UTF-8">
+    <link rel="icon" id="favicon" href="/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script type="module" crossorigin src="/assets/index-b_j1J_-G.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-X56Zsa6U.css">
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div id="loader-wrapper">
+        <div id="loader-container">
+          <div class="pin"></div>
+          <div class="pin"></div>
+          <div class="pin"></div>
+          <div class="pin"></div>
+          <div class="pin"></div>
+          <div class="pin"></div>
+          <div class="pin"></div>
+          <div class="pin"></div>
+        </div>
+        <!-- <div id="loader"></div> -->
+        <div id="loader-title">loading</div>
+      </div>
+    </div>
+    <style>
+      #loader-container .pin:nth-child(1) {
+        transform: rotate(0deg);
+      }
+      #loader-container .pin:nth-child(2) {
+        transform: rotate(45deg);
+      }
+      #loader-container .pin:nth-child(3) {
+        transform: rotate(90deg);
+      }
+      #loader-container .pin:nth-child(4) {
+        transform: rotate(135deg);
+      }
+      #loader-container .pin:nth-child(5) {
+        transform: rotate(180deg);
+      }
+      #loader-container .pin:nth-child(6) {
+        transform: rotate(225deg);
+      }
+      #loader-container .pin:nth-child(7) {
+        transform: rotate(270deg);
+      }
+      #loader-container .pin:nth-child(8) {
+        transform: rotate(315deg);
+      }
+      #loader-container .pin:nth-child(1)::before {
+        animation-delay: 0;
+      }
+      #loader-container .pin:nth-child(2)::before {
+        animation-delay: .125s;
+      }
+      #loader-container .pin:nth-child(3)::before {
+        animation-delay: .25s;
+      }
+      #loader-container .pin:nth-child(4)::before {
+        animation-delay: .375s;
+      }
+      #loader-container .pin:nth-child(5)::before {
+        animation-delay: .5s
+      }
+      #loader-container .pin:nth-child(6)::before {
+        animation-delay: .625s;
+      }
+      #loader-container .pin:nth-child(7)::before {
+        animation-delay: .75s;
+      }
+      #loader-container .pin:nth-child(8)::before {
+        animation-delay: .875s;
+      }
+      .pin {
+        left: calc(50% - 3px);
+        top: calc(50% - 20px);
+        position: absolute;
+        border-radius: 6px;
+        width: 6px;
+        height: 20px;
+        transform-origin: bottom center;
+      }
+      .pin::before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 10px;
+        background: var(--color);
+        border-radius: 6px;
+        animation: 1s light ease infinite;
+        transition: all .25s ease;
+      }
+      @keyframes light {
+        12.5% {
+          background: var(--color);
+        }
+        50% {
+          background: var(--light-color);
+        }
+        87.5% {
+          background: var(--color);
+        }
+      }
+      @keyframes loading {
+        0% {
+          content: '';
+        }
+        25% {
+          content: '.';
+        }
+        50% {
+          content: '..';
+        }
+        75% {
+          content: '...';
+        }
+      }
+      #loader-wrapper {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        --spin-color: #7f8f98;
+        --color: #f1f1f1;
+        --light-color: #b5b5b5;
+      }
+      #loader-container {
+        height: 100%;
+      }
+      #loader-title {
+        color: var(--spin-color);
+        position: absolute;
+        left: 50%;
+        top: calc(50% + 40px);
+        transform: translate(-50%, -50%);
+      }
+      #loader-title::after {
+        content: '';
+        animation: 3s loading linear infinite;
+      }
+    </style>
   </body>
 </html>
